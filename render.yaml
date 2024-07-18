@@ -11,7 +11,7 @@ services:
     buildCommand: ".bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
-      - key: postgresql:DATABASE_URL
+      - key: postgresql://essohbasecamp_user:MghzkIftjHOYO10HnjcK4B8wWpKaWK9P@dpg-cqcg0rg8fa8c73cpebc0-a/essohbasecamp
         fromDatabase:
           name: postgres
           property: connectionString
