@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-end mb-3 mr-5 mt-4">
+  <%= link_to "#{content_tag(:i, '', class: 'fa fa-eye')} Project Overview".html_safe, @project, class: "btn btn-info" %>
+</div>
+
+<div class="d-flex justify-content-end mb-2 mr-5">
+  <%= button_to "#{content_tag(:i, '', class: 'fa fa-trash')} Delete Project".html_safe, @project, method: :delete, class: "btn btn-unstyled" %>
+</div>
+
+<h1 class="form-group text-center">Edit Project</h1>
+<div class="d-flex justify-content-center align-items-center mb-3">
+  <%= link_to @project, class: "text-dark mr-2" do %>
+    <%= content_tag(:i, '', class: 'fas fa-pencil-alt') %>
+  <% end %>
+  <p class="card-text"><%= @project.user.email %></p>
+</div>
+
+
+<%= render "form", project: @project %>
+
+<div class="d-flex mb-3 mt-4">
+  <%= link_to "Back to projects", projects_path, class: "btn btn-secondary" %>
+</div>

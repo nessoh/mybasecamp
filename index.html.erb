@@ -1,0 +1,59 @@
+<% if user_signed_in? %>
+<div class="container text-center">
+ 
+<h1>Projects</h1>
+
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <div class="alert alert-secondary">
+        <h6 class="alert-heading"><i class="fas fa-asterisk"></i> All Projects</h2>
+      </div>
+      <% @projects.each do |project| %>
+        <%= render partial: 'projects/project', locals: { project: project } %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 text-center">
+      <div class="alert alert-secondary">
+        <h6 class="alert-heading"><i class="fas fa-pen"></i> Created by Me</h2>
+      </div>
+      <% if @created_by_me.present? %>
+        <% @created_by_me.each do |project| %>
+          <%= render partial: 'projects/project', locals: { project: project } %>
+        <% end %>
+      <% else %>
+        <p>No projects found.</p>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 text-center">
+      <div class="alert alert-secondary">
+        <h6 class="alert-heading"><i class="fas fa-users"></i> Shared with Me</h2>
+      </div>
+      <% if @shared_with_me.present? %>
+        <% @shared_with_me.each do |project| %>
+          <%= render partial: 'projects/project', locals: { project: project } %>
+        <% end %>
+      <% else %>
+        <p>No projects found.</p>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<% else %>
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+  <div class="text-center">
+    <%= image_tag 'logo.png', alt: 'Your Image', class: 'img-fluid mb-4', style: 'max-width: 300px; max-height: 200px;' %>
+    <h1 class="display-1 font-weight-bold">COLLABORATE</h1>
+    <h2 class="h3 mt-3">A project management tool for developers</h2>
+    <div class="mt-4 d-flex justify-content-center">
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-info mr-2" %>
+      <%= link_to "Login", new_user_session_path, class: "btn btn-info" %>
+    </div>
+  </div>
+</div>
+
+
+<% end %>

@@ -1,0 +1,16 @@
+<ul class="nav">
+  <li class="nav-item mr-auto">
+    <%= link_to image_tag("logo.png", class: "nav-brand",height: 40, width: 40), "#" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "#{content_tag(:i, '', class: 'fa fa-plus')} Add Project".html_safe, new_project_path, class: "nav-link text-info" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "#{content_tag(:i, '', class: 'fa fa-cog')} Edit Profile".html_safe, edit_user_registration_path, class: "nav-link text-info" %>
+  </li>
+    <li class="nav-item">
+    <%= link_to "#{content_tag(:i, '', class: 'fa fa-door-open')} Log Out".html_safe, destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link text-info" %>
+  </li>
+
+
+</ul>
